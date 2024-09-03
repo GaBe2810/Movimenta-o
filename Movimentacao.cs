@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Movimentacao : MonoBehaviour
 {
-    Vector3 posicao;
+    Vector3 posicao, s;
     // Start is called before the first frame update
     void Start()
     {
         posicao = new Vector3(1.0f, 2.0f, 1.5f);
         transform.position = posicao;
+        s = new Vector3(5f, 5f, 5f);
+        transform.localScale = s;
     }
 
     // Update is called once per frame
@@ -67,9 +69,12 @@ public class Movimentacao : MonoBehaviour
             }
             
         }
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKey(KeyCode.Keypad1))
         {
-            Destroy(this.gameObject);
+            s.x = Random.Range(3f, 30f);
+            s.y = Random.Range(3f, 30f);
+            s.z = Random.Range(3f, 30f);
+            transform.localScale = s;
         }
     }
 }
